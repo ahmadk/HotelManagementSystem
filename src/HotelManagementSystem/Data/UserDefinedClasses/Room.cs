@@ -7,10 +7,9 @@ namespace HotelManagementSystem.Data.UserDefinedClasses
 {
     public class Room
     {
+        public Guid ID { get; set; }
         public string RoomNo { get; set; }
         public string Floorno { get; set; }
         public int Capacity { get; set; }
-        public int RoomId { get; set; }
-
     }
 }

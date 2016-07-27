@@ -5,22 +5,11 @@ using System.Threading.Tasks;
 
 namespace HotelManagementSystem.Data.UserDefinedClasses
 {
-    public class RoomFee : Fee
+    public class RoomFee
     {
-        private string _roomID;
-        private Fee _fee;
-
-        public string CustomerRoomID
-        {
-            get { return _roomID; }
-            set { _roomID = value; }
-        }
-       
-        public Fee RFee
-        {
-            get { return _fee; }
-            set { _fee = value; }
-        }
-
+        public Guid ID { get; set; }
+        public Guid RoomID { get; set; }
+        public Guid CustomerRoomID { get; set; }
+        public decimal Fee { get; set; }
     }
 }

@@ -5,12 +5,9 @@ using System.Threading.Tasks;
 
 namespace HotelManagementSystem.Data.UserDefinedClasses
 {
-    public abstract class Fee
+    public class Employee
     {
         public Guid ID { get; set; }
-        public Guid RoomID { get; set; }
-        public decimal Price { get; set; }
-        public DateTime Date { get; set; }
-        public Guid MoneyTypeID { get; set; }
+        public Guid EmployeeTypeID { get; set; }
     }
 }

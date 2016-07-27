@@ -7,10 +7,9 @@ namespace HotelManagementSystem.Data.UserDefinedClasses
 {
     public class RoomCheck
     {
-        public string FK_ReservationId { get; set; }
-        public string Fk_RoomCheckId { get; set; }
-        public string Checkİnfo { get; set; }
-
-
+        public Guid ID { get; set; }
+        public Guid CheckedByID { get; set; }
+        public Guid  ReservationId { get; set; }
+        public string CheckInfo { get; set; }
     }
 }

@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace HotelManagementSystem.Data.UserDefinedClasses
 {
-    public class Employees
+    public class Code
     {
-        public string username { get; set; }
-        public string password { get; set; }
-        public int employeesID { get; set; }
-
-       
+        public Guid ID { get; set; }
+        public Guid CodesetID { get; set; }
+        public string Description { get; set; }
     }
 }
