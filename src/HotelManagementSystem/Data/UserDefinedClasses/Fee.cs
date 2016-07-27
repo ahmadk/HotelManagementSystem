@@ -22,5 +22,6 @@ namespace HotelManagementSystem.Data.UserDefinedClasses
             set { _moneyType = value; }
         }
 
+        public abstract void calculateFee();
     }
 }

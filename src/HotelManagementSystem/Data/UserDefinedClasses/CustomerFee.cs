@@ -8,7 +8,6 @@ namespace HotelManagementSystem.Data.UserDefinedClasses
     public class CustomerFee : Fee
     {
         private Customers _customer;
-        private float _customerFee;
         private Reservation _reservation;
 
         public Customers Customer
@@ -21,6 +20,11 @@ namespace HotelManagementSystem.Data.UserDefinedClasses
         {
             get { return _reservation; }
             set { _reservation = value; }
+        }
+
+        public override void calculateFee()
+        {
+
         }
     }
 }
