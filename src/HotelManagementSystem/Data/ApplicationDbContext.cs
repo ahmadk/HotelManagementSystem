@@ -30,6 +30,29 @@ namespace HotelManagementSystem.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<Employee>().HasIndex(g => g.ID);
+            builder.Entity<Employee>().HasIndex(g => g.EmployeeTypeID);
+
+            builder.Entity<Employee>().Property(d => d.ID).ValueGeneratedOnAddOrUpdate().IsConcurrencyToken();
+
+            builder.Entity<Employee>().Property(c => c.ID).IsRequired();
+            builder.Entity<Employee>().Property(f => f.EmployeeTypeID).IsRequired();
+
+            builder.Entity<Employee>().HasKey(c => new { c.EmployeeTypeID });
+
+
+            builder.Entity<Employee>().Property(b => b.ID).ValueGeneratedNever();
+            builder.Entity<Employee>().Property(b => b.ID).ValueGeneratedOnAdd();
+            builder.Entity<Employee>().Property(b => b.ID).ValueGeneratedOnAddOrUpdate();
+
+
+            builder.Entity<Employee>().Property(b => b.EmployeeTypeID).ValueGeneratedNever();
+            builder.Entity<Employee>().Property(b => b.EmployeeTypeID).ValueGeneratedOnAdd();
+            builder.Entity<Employee>().Property(b => b.EmployeeTypeID).ValueGeneratedOnAddOrUpdate();
+
+
+
+
             builder.Entity<Customer>().HasAlternateKey(k => k.Email);
 
             builder.Entity<Customer>().HasIndex(a => a.ID).IsUnique();
