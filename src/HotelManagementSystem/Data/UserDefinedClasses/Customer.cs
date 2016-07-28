@@ -13,6 +13,7 @@ namespace HotelManagementSystem.Data.UserDefinedClasses
             CustomerFees = new HashSet<CustomerFee>();
         }
         public Guid ID { get; set; }
+        public Guid ReservationID { get; set; }
         public string Name { get; set; }
         public string Lastname { get; set; }
         public string Phone { get; set; }

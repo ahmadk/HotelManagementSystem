@@ -30,6 +30,63 @@ namespace HotelManagementSystem.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<Customer>().HasAlternateKey(k => k.Email);
+
+            builder.Entity<Customer>().HasIndex(a => a.ID).IsUnique();
+            builder.Entity<Customer>().HasIndex(b => b.ReservationID).IsUnique();
+
+            builder.Entity<Customer>().Property(b => b.Lastname).IsConcurrencyToken();
+
+            builder.Entity<Customer>().Property(p => p.ID).ValueGeneratedOnAddOrUpdate().IsConcurrencyToken();
+
+            builder.Entity<Customer>().Property(b => b.Name).HasMaxLength(500);
+            builder.Entity<Customer>().Property(b => b.Lastname).HasMaxLength(500);
+            builder.Entity<Customer>().Property(b => b.Phone).HasMaxLength(500);
+            builder.Entity<Customer>().Property(b => b.Address).HasMaxLength(500);
+            builder.Entity<Customer>().Property(b => b.Email).HasMaxLength(500);
+
+            builder.Entity<Customer>().Property(c => c.ID).IsRequired();
+            builder.Entity<Customer>().Property(c => c.ReservationID).IsRequired();
+            builder.Entity<Customer>().Property(c => c.Name).IsRequired();
+            builder.Entity<Customer>().Property(c => c.Lastname).IsRequired();
+            builder.Entity<Customer>().Property(c => c.Phone).IsRequired();
+            builder.Entity<Customer>().Property(c => c.Address).IsRequired();
+            builder.Entity<Customer>().Property(c => c.Email).IsRequired();
+
+
+            builder.Entity<Customer>().HasKey(c => new { c.ReservationID });
+
+            builder.Entity<Customer>().Property(b => b.ID).ValueGeneratedNever();
+            builder.Entity<Customer>().Property(b => b.ID).ValueGeneratedOnAdd();
+            builder.Entity<Customer>().Property(b => b.ID).ValueGeneratedOnAddOrUpdate();
+
+
+            builder.Entity<Customer>().Property(b => b.ReservationID).ValueGeneratedNever();
+            builder.Entity<Customer>().Property(b => b.ReservationID).ValueGeneratedOnAdd();
+            builder.Entity<Customer>().Property(b => b.ReservationID).ValueGeneratedOnAddOrUpdate();
+
+            builder.Entity<Customer>().Property(b => b.Name).ValueGeneratedNever();
+            builder.Entity<Customer>().Property(b => b.Name).ValueGeneratedOnAdd();
+            builder.Entity<Customer>().Property(b => b.Name).ValueGeneratedOnAddOrUpdate();
+
+            builder.Entity<Customer>().Property(b => b.Lastname).ValueGeneratedNever();
+            builder.Entity<Customer>().Property(b => b.Lastname).ValueGeneratedOnAdd();
+            builder.Entity<Customer>().Property(b => b.Lastname).ValueGeneratedOnAddOrUpdate();
+
+            builder.Entity<Customer>().Property(b => b.Phone).ValueGeneratedNever();
+            builder.Entity<Customer>().Property(b => b.Phone).ValueGeneratedOnAdd();
+            builder.Entity<Customer>().Property(b => b.Phone).ValueGeneratedOnAddOrUpdate();
+
+            builder.Entity<Customer>().Property(b => b.Address).ValueGeneratedNever();
+            builder.Entity<Customer>().Property(b => b.Address).ValueGeneratedOnAdd();
+            builder.Entity<Customer>().Property(b => b.Address).ValueGeneratedOnAddOrUpdate();
+
+            builder.Entity<Customer>().Property(b => b.Email).ValueGeneratedNever();
+            builder.Entity<Customer>().Property(b => b.Email).ValueGeneratedOnAdd();
+            builder.Entity<Customer>().Property(b => b.Email).ValueGeneratedOnAddOrUpdate();
+
+            //
+
             builder.Entity<Code>(f => f.HasKey(g => g.ID));
             builder.Entity<Codeset>(f => f.HasKey(g => g.ID));
             builder.Entity<Customer>(f => f.HasKey(g => g.ID));
